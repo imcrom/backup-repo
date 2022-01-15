@@ -101,7 +101,7 @@ keys = [
     Key(["mod1"], "b", lazy.spawn('brave')),
     Key(["mod2", "mod1"], "t", lazy.spawn('alacritty')),
     Key(["mod1"], "f", lazy.spawn('pcmanfm')),
-    Key(["mod1"], "d", lazy.spawn('discord')),
+    Key(["mod1"], "d", lazy.spawn('discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy')),
     Key(["mod1"], "g", lazy.spawn('telegram-desktop')),
 
 # CONTROL + SHIFT KEYS
@@ -280,7 +280,7 @@ for i in groups:
 def init_layout_theme():
     return {"margin":10,
             "border_width":2,
-            "border_focus": "#ff00ff",
+            "border_focus": "#62FF00",
             "border_normal": "#f4c2c2"
             }
 
@@ -288,8 +288,8 @@ layout_theme = init_layout_theme()
 
 
 layouts = [
-    layout.MonadTall(margin=16, border_width=2, border_focus="#ff00ff", border_normal="#f4c2c2"),
-    layout.MonadWide(margin=16, border_width=2, border_focus="#ff00ff", border_normal="#f4c2c2"),
+    layout.MonadTall(margin=16, border_width=2, border_focus="#62FF00", border_normal="#f4c2c2"),
+    layout.MonadWide(margin=16, border_width=2, border_focus="#62FF00", border_normal="#f4c2c2"),
     layout.Matrix(**layout_theme),
     layout.Bsp(**layout_theme),
     layout.Floating(**layout_theme),
@@ -470,7 +470,7 @@ def init_widgets_list():
                         foreground = colors[9],
                         background = colors[23],
                         fontsize = 12,
-                        format="%Y-%m-%d %l:%M %p"
+                        format="%Y-%m-%d %a %l:%M %p"
                         ),
 
                widget.Systray(
@@ -480,6 +480,7 @@ def init_widgets_list():
                        ),
               ]
     return widgets_list
+
 
 widgets_list = init_widgets_list()
 
@@ -610,3 +611,5 @@ auto_fullscreen = True
 focus_on_window_activation = "focus" # or smart
 
 wmname = "LG3D"
+
+lazy.restart()

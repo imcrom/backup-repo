@@ -33,6 +33,10 @@ run volumeicon &
 #run spotify &
 #run atom &
 #run telegram-desktop &
-nitrogen --restore
-nitrogen --restore
+
+#autorandr -l dual
+redshift -O 3500
+#bash qtile cmd-obj -o cmd -f reload_config &
+#run qtile cmd-obj -o cmd -f reload_config &
+#xrandr --output HDMI-2 --mode 1920x1080 --primary --right-of eDP-1
 nitrogen --restore
